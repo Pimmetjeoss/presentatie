@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Presentatie
 
-## Getting Started
+Een moderne presentatie-applicatie gebouwd met Next.js 15 en geavanceerde 3D-graphics technologieën.
 
-First, run the development server:
+## 🚀 Functies
 
+- **3D Visualisaties**: Gebruik van Three.js en React Three Fiber voor interactieve 3D-elementen
+- **Spline Integratie**: Naadloze integratie van Spline 3D-scenes
+- **Animaties**: GSAP en Framer Motion voor vloeiende animaties
+- **Modern UI**: Tailwind CSS met shadcn/ui componenten
+- **TypeScript**: Volledig getypeerde codebase voor betrouwbare ontwikkeling
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 met React 19
+- **Styling**: Tailwind CSS 4
+- **3D Graphics**: 
+  - Three.js
+  - React Three Fiber
+  - React Three Drei
+  - Spline
+- **Animaties**: 
+  - GSAP
+  - Framer Motion
+- **UI Components**: 
+  - shadcn/ui
+  - Radix UI
+  - Tabler Icons
+  - Lucide React
+- **Ontwikkeling**: TypeScript, ESLint
+
+## 🚦 Aan de slag
+
+### Vereisten
+
+- Node.js (versie 18 of hoger)
+- npm, yarn, pnpm, of bun
+
+### Installatie
+
+1. Clone de repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Pimmetjeoss/presentatie.git
+cd presentatie
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Installeer dependencies:
+```bash
+npm install
+# of
+yarn install
+# of
+pnpm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start de development server:
+```bash
+npm run dev
+# of
+yarn dev
+# of
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in je browser.
 
-## Learn More
+## 📝 Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Start de development server
+- `npm run build` - Bouw de applicatie voor productie (met Turbopack)
+- `npm run start` - Start de productie server
+- `npm run lint` - Voer ESLint uit voor code kwaliteit
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏗️ Projectstructuur
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── components/     # Herbruikbare UI componenten
+├── app/           # Next.js App Router pagina's
+└── ...
+```
 
-## Deploy on Vercel
+## 🚀 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Vercel (Aanbevolen)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+De makkelijkste manier om deze Next.js app te deployen is via het [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+Bekijk de [Next.js deployment documentatie](https://nextjs.org/docs/app/building-your-application/deploying) voor meer details.
+
+### Andere Platforms
+
+Deze applicatie kan ook gedeployed worden op andere platforms die Next.js ondersteunen zoals Netlify, Railway, of elke andere Node.js hosting provider.
+
+## 📚 Meer Informatie
+
+- [Next.js Documentatie](https://nextjs.org/docs)
+- [Three.js Documentatie](https://threejs.org/docs/)
+- [Tailwind CSS Documentatie](https://tailwindcss.com/docs)
+- [GSAP Documentatie](https://gsap.com/docs/)
+- [Framer Motion Documentatie](https://motion.dev/)
+
+## 🤝 Contributing
+
+Bijdragen zijn welkom! Voel je vrij om een issue te openen of een pull request in te dienen.
+
+## 📄 License
+
+Dit project is gelicenseerd onder de MIT License.
