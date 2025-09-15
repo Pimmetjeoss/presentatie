@@ -18,6 +18,16 @@ const nextConfig: NextConfig = {
         hostname: 'assets.aceternity.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'assets.apidog.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+        pathname: '/**',
+      },
     ],
   },
 };

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 const pages = [
   {
@@ -55,6 +56,7 @@ export default function ScrollAdventure() {
   const numOfPages = pages.length;
   const animTime = 1000;
   const scrolling = useRef(false);
+  const router = useRouter();
 
   const navigateUp = () => {
     if (currentPage > 1) setCurrentPage(p => p - 1);
@@ -111,13 +113,18 @@ export default function ScrollAdventure() {
               style={{ transform: leftTrans }}
             >
               <div
-                className="w-full h-full bg-center bg-no-repeat"
+                className={`w-full h-full bg-center bg-no-repeat ${idx === numOfPages && page.leftBgImage ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''}`}
                 style={{ 
                   backgroundImage: page.leftBgImage ? `url(${page.leftBgImage})` : undefined,
                   backgroundColor: page.leftBgImage === '/Claude_AI_symbol.png' ? '#F5E6D3' : 
                                   (page.leftBgImage?.includes('remixed_image') ? '#F5E6D3' : '#2C3E50'),
                   backgroundSize: page.leftBgImage === '/Claude_AI_symbol.png' ? '50%' : 
                                   (page.leftBgImage?.includes('remixed_image') ? 'contain' : 'cover')
+                }}
+                onClick={() => {
+                  if (idx === numOfPages && page.leftBgImage) {
+                    router.push('/ai-coding');
+                  }
                 }}
               >
                 <div className="flex flex-col items-center justify-center h-full p-8" style={{ color: '#D2691E', fontFamily: 'Courier New' }}>

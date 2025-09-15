@@ -2,6 +2,7 @@
 'use client';
 import { ReactLenis } from 'lenis/react';
 import React, { useRef, forwardRef } from 'react';
+import Link from 'next/link';
 
 interface ArticleCardData {
   title: string;
@@ -13,76 +14,92 @@ interface ArticleCardData {
 
 const articleCardsData: ArticleCardData[] = [
   {
-    title: 'AI weet totaal niet waar ie het over heeft!',
+    title: 'Prompt',
     description:
-      "An Mouse who is running with couple of images and the best part is you can hide all the images when you don't move your mouse. I hope you'll love it",
-    link: 'https://ui-layout.com/components/image-mousetrail',
-    color: '#E0E0E0', // Light Gray
+      'Een prompt is de tekstinstructie of vraag die je aan een LLM geeft om specifieke output te genereren. Het is je communicatiemiddel met de LLM - de manier waarop je het model vertelt wat je wilt. Een prompt kan variëren van een simpele vraag tot complexe instructies met rolbeschrijvingen, context, voorbeelden, en outputspecificaties.',
+    link: '#',
+    color: '#E8E8E8', // Lightest Gray
     rotation: 'rotate-6',
   },
   {
-    title: 'Progressive Carousel',
+    title: 'AI weet totaal niet waar ie het over heeft!',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequatur explicabo assumenda odit necessitatibus possimus ducimus aliquam. Ullam dignissimos animi officiis, in sequi et inventore harum ipsam sed.',
-    link: 'https://ui-layout.com/components/progressive-carousel',
-    color: '#C0C0C0', // Medium Gray
+      'Een LLM heeft geen bewustzijn of begrip van betekenis. Het model werkt op basis van statistische patronen in tekst, niet vanuit daadwerkelijk begrip. Het is alsof je een zeer geavanceerde autoaanvulling hebt die voorspelt wat de meest waarschijnlijke volgende woorden zijn. Het systeem "begrijpt" niet dat water nat is - het weet alleen dat deze woorden vaak samen voorkomen.',
+    link: '#',
+    color: '#D8D8D8', // Light Gray
     rotation: 'rotate-0',
   },
   {
-    title: 'Responsive Drawer',
+    title: 'AI kan geen nee verkopen',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequatur explicabo assumenda odit necessitatibus possimus ducimus aliquam. Ullam dignissimos animi officiis, in sequi et inventore harum ipsam sed.',
-    link: 'https://ui-layout.com/components/drawer',
-    color: '#A0A0A0', // Darker Gray
+      'Een LLM kan om die reden niet aangeven dat hij iets niet weet, maar genereert altijd een antwoord op basis van waarschijnlijkheden. Moderne systemen zijn wel getraind om voorzichtiger te formuleren bij onzekerheid, maar dit is aangeleerd gedrag, geen echte twijfel.',
+    link: '#',
+    color: '#C8C8C8', // Medium Light Gray
     rotation: '-rotate-6',
   },
   {
-    title: 'Animated Globe',
+    title: 'Loopt altijd achter de feiten aan',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequatur explicabo assumenda odit necessitatibus possimus ducimus aliquam. Ullam dignissimos animi officiis, in sequi et inventore harum ipsam sed.',
-    link: 'https://ui-layout.com/components/globe',
-    color: '#808080', // Even Darker Gray
-    rotation: 'rotate-0',
-  },
-  {
-    title: 'Interactive Dashboard',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequatur explicabo assumenda odit necessitatibus possimus ducimus aliquam. Ullam dignissimos animi officiis, in sequi et inventore harum ipsam sed.',
-    link: 'https://ui-layout.com/components/dashboard',
-    color: '#707070', // Darker Gray
+      'Het trainen van een groot model kost maanden en enorme rekenkracht. Tussen het verzamelen van data, het trainen, testen en uitrollen zit vaak meer dan een jaar. Daarom weten ze niets over recente gebeurtenissen, nieuwe ontwikkelingen of actuele nieuwsfeiten.',
+    link: '#',
+    color: '#B8B8B8', // Medium Gray
     rotation: 'rotate-3',
   },
   {
-    title: 'Data Visualization',
+    title: 'Context',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequatur explicabo assumenda odit necessitatibus possimus ducimus aliquam. Ullam dignissimos animi officiis, in sequi et inventore harum ipsam sed.',
-    link: 'https://ui-layout.com/components/charts',
-    color: '#606060', // Even Darker Gray
-    rotation: '-rotate-3',
-  },
-  {
-    title: 'Modern Forms',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequatur explicabo assumenda odit necessitatibus possimus ducimus aliquam. Ullam dignissimos animi officiis, in sequi et inventore harum ipsam sed.',
-    link: 'https://ui-layout.com/components/forms',
-    color: '#505050', // Darkest Gray
+      'Context is cruciaal voor goede antwoorden. Als je vraagt "Is deze boom ziek?" zonder foto of beschrijving, kan een LLM alleen algemene informatie geven. Met context (foto, locatie, seizoen, boomsoort) kan het een veel gerichter antwoord geven. Context bepaalt de relevantie en accuratesse van het antwoord.',
+    link: '#',
+    color: '#A8A8A8', // Medium Dark Gray
     rotation: 'rotate-0',
   },
   {
-    title: 'Animation Library',
+    title: 'Contextwindow',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequatur explicabo assumenda odit necessitatibus possimus ducimus aliquam. Ullam dignissimos animi officiis, in sequi et inventore harum ipsam sed.',
-    link: 'https://ui-layout.com/components/animations',
-    color: '#404040', // Very Dark Gray
-    rotation: 'rotate-4',
+      'Het contextwindow is het "werkgeheugen" van een LLM - hoeveel tekst het tegelijk kan verwerken. Dit varieert van enkele duizenden tot honderdduizenden tokens (ongeveer 0,75 woord per token). Alles buiten dit window "vergeet" het model. Bij lange gesprekken kan informatie van het begin verloren gaan.',
+    link: '#',
+    color: '#989898', // Darker Gray
+    rotation: '-rotate-3',
   },
   {
-    title: 'Component System',
+    title: 'Hallucinaties',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequatur explicabo assumenda odit necessitatibus possimus ducimus aliquam. Ullam dignissimos animi officiis, in sequi et inventore harum ipsam sed.',
-    link: 'https://ui-layout.com/components/system',
-    color: '#303030', // Darkest Gray
-    rotation: '-rotate-4',
+      'Hallucinaties zijn verzonnen of incorrecte informatie die een LLM presenteert alsof het waar is. Dit gebeurt omdat het model altijd probeert een plausibel antwoord te genereren, ook als het de informatie niet kent. Voorbeelden: niet-bestaande studies citeren, valse feiten verzinnen, of niet-bestaande functies beschrijven.',
+    link: '#',
+    color: '#888888', // Even Darker Gray
+    rotation: 'rotate-6',
+  },
+  {
+    title: 'Gestructureerde data',
+    description:
+      'LLMs zijn primair getraind op ongestructureerde tekst, maar worstelen met gestructureerde data zoals tabellen, databases of spreadsheets. Ze kunnen moeite hebben met het behouden van relaties tussen datapunten, het uitvoeren van precieze berekeningen, of het consistent interpreteren van kolommen en rijen.',
+    link: '#',
+    color: '#787878', // Darker Gray
+    rotation: 'rotate-0',
+  },
+  {
+    title: 'Multimodaal',
+    description:
+      'Multimodale LLM kan verschillende soorten input verwerken: tekst, afbeeldingen, audio, en soms video. Dit opent nieuwe mogelijkheden zoals het analyseren van röntgenfoto\'s of het transcriberen van audio. Het model leert verbanden tussen verschillende modaliteiten, waardoor AI-systemen veelzijdiger maar ook complexer worden.',
+    link: '#',
+    color: '#686868', // Even Darker Gray
+    rotation: '-rotate-6',
+  },
+  {
+    title: 'Agentic AI',
+    description:
+      'Agentic AI verwijst naar AI-systemen die zelfstandig kunnen handelen om doelen te bereiken, zonder constante menselijke sturing. In tegenstelling tot traditionele AI die alleen reageert, kan agentic AI taken opdelen, planning maken, tools gebruiken, en meerdere stappen ondernemen om een complex probleem op te lossen.',
+    link: '#',
+    color: '#585858', // Very Dark Gray
+    rotation: 'rotate-3',
+  },
+  {
+    title: 'Generative AI',
+    description:
+      'Generative AI is kunstmatige intelligentie die nieuwe content kan creëren op basis van patronen uit trainingsdata. Dit omvat het genereren van tekst (ChatGPT), afbeeldingen (DALL-E), muziek, video, code, en 3D-modellen. Het "generatieve" aspect betekent dat het iets nieuws maakt dat de patronen en stijlen volgt die het heeft geleerd.',
+    link: '#',
+    color: '#484848', // Darkest Gray
+    rotation: '-rotate-3',
   },
 ];
 
@@ -95,7 +112,7 @@ const Component = forwardRef<HTMLElement>((props, ref) => {
             <div className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>
 
             <h1 className='2xl:text-7xl text-5xl px-8 font-semibold text-center tracking-tight leading-[120%]'>
-              Superbelangrijke keywords om LLMs te gebruiken <br /> Vergeet ze niet en schrijf ze op!!! 👇
+              De keywords die je AI-resultaten transformeren <br /> Van basis tot expert prompting
             </h1>
           </section>
         </div>
@@ -111,29 +128,24 @@ const Component = forwardRef<HTMLElement>((props, ref) => {
                   >
                     <h1 className='text-7xl font-bold'>{card.title}</h1>
                     <p className='text-3xl leading-relaxed'>{card.description}</p>
-                    <a
-                      href={card.link}
-                      target='_blank'
-                      className='w-fit bg-black px-12 py-6 text-3xl rounded-xl cursor-pointer text-white font-medium hover:bg-gray-800 transition-colors'
-                    >
-                      Click to View
-                    </a>
                   </article>
                 </figure>
               ))}
             </div>
             <div className='sticky top-0 h-screen grid place-content-center'>
               <h1 className='text-4xl px-8 font-medium text-center tracking-tight leading-[120%]'>
-                What We <br /> Have Now😎
+                Essential AI <br /> Concepts 🚀
               </h1>
             </div>
           </div>
         </section>
 
         <footer className='group bg-slate-950 '>
-          <h1 className='text-[16vw] translate-y-20 leading-[100%] uppercase font-semibold text-center bg-gradient-to-r from-gray-400 to-gray-800 bg-clip-text text-transparent transition-all ease-linear'>
-            Contiweb
-          </h1>
+          <Link href='/nano_banana' className='block'>
+            <h1 className='text-[16vw] translate-y-20 leading-[100%] uppercase font-semibold text-center bg-gradient-to-r from-gray-400 to-gray-800 bg-clip-text text-transparent transition-all ease-linear hover:from-gray-300 hover:to-gray-700 cursor-pointer'>
+              Contiweb
+            </h1>
+          </Link>
           <div className='bg-black h-40 relative z-10 grid place-content-center text-2xl rounded-tr-full rounded-tl-full text-white'></div>
         </footer>
       </main>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { SplineScene } from "@/components/ui/splite";
 import { Card } from "@/components/ui/card"
 import { Spotlight } from "@/components/ui/spotlight"
@@ -34,6 +35,7 @@ function SplineSceneBasic() {
 }
 
 export default function Home() {
+  const router = useRouter();
   const [showTopLeft, setShowTopLeft] = useState(true);
   const [showBottomRight, setShowBottomRight] = useState(false);
   const [showAgendaItems, setShowAgendaItems] = useState(false);
@@ -86,7 +88,12 @@ export default function Home() {
       {showAgendaItems && (
         <Card className="absolute top-20 left-8 z-10 bg-black/80 border-black p-8 animate-in fade-in slide-in-from-left-5 duration-500">
           <div className="space-y-4">
-            <p className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">- Wat is een LLM?</p>
+            <p 
+              className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 cursor-pointer hover:from-neutral-200 hover:to-neutral-500 transition-all"
+              onClick={() => router.push('/llm')}
+            >
+              - Wat is een LLM?
+            </p>
             <p className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">- Keywords</p>
             <p className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">- Nano Banana</p>
             <p className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">- MCP</p>

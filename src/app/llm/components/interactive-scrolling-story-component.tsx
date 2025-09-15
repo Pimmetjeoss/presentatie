@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const slidesData = [
   {
     title: "Wat is een LLM?",
-    description: "Describe your logic in plain English and watch as the AI generates clean, efficient code in seconds. From Python scripts to complex algorithms.",
+    description: "Een Large Language Model is een AI-systeem dat menselijke taal begrijpt en genereert. Het is getraind op miljarden teksten en kan daardoor vragen beantwoorden, teksten schrijven, vertalen en programmeren. Bekende voorbeelden zijn ChatGPT, Claude en Gemini - digitale assistenten waarmee je in gewone taal kunt communiceren.",
     image: "https://images.unsplash.com/photo-1564865878688-9a244444042a?q=80&w=2070&auto=format&fit=crop",
     bgColor: "#fff100",
     textColor: "#000000",
@@ -135,10 +135,14 @@ export function ScrollingFeatureShowcase() {
                 ))}
               </div>
 
-              {/* Get Started Button */}
-              <div className="absolute bottom-16 left-16">
+              {/* Get Started Button - Only show on last slide */}
+              <div className={`absolute bottom-16 left-16 transition-all duration-700 ease-in-out ${
+                activeIndex === slidesData.length - 1
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-10 pointer-events-none'
+              }`}>
                 <a
-                  href="#get-started"
+                  href="/Keywords"
                   className="px-10 py-4 bg-black text-white font-semibold rounded-full uppercase tracking-wider hover:bg-gray-800 transition-colors"
                 >
                   Volgende

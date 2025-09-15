@@ -5,40 +5,42 @@ import { motion } from "framer-motion"
 
 interface Frame {
   id: number
-  video?: string
-  image?: string
-  title?: string
+  video: string
+  title: string
+  fontClass: string
   defaultPos: { x: number; y: number; w: number; h: number }
-  corner?: string
-  edgeHorizontal?: string
-  edgeVertical?: string
+  corner: string
+  edgeHorizontal: string
+  edgeVertical: string
   mediaSize: number
-  borderThickness?: number
-  borderSize?: number
+  borderThickness: number
+  borderSize: number
   isHovered: boolean
 }
 
 interface FrameComponentProps {
-  video?: string
-  image?: string
-  title?: string
+  video: string
+  title: string
+  fontClass: string
   width: number | string
   height: number | string
   className?: string
-  corner?: string
-  edgeHorizontal?: string
-  edgeVertical?: string
+  corner: string
+  edgeHorizontal: string
+  edgeVertical: string
   mediaSize: number
-  borderThickness?: number
-  borderSize?: number
+  borderThickness: number
+  borderSize: number
   showFrame: boolean
   isHovered: boolean
+  isPlaying: boolean
+  onVideoClick: () => void
 }
 
 function FrameComponent({
   video,
-  image,
   title,
+  fontClass,
   width,
   height,
   className = "",
@@ -46,24 +48,37 @@ function FrameComponent({
   edgeHorizontal,
   edgeVertical,
   mediaSize,
-  borderThickness = 0,
-  borderSize = 100,
+  borderThickness,
+  borderSize,
   showFrame,
   isHovered,
+  isPlaying,
+  onVideoClick,
 }: FrameComponentProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const isVideo = !!video
-  const mediaSource = video || image
 
   useEffect(() => {
-    if (isVideo && videoRef.current) {
-      if (isHovered) {
-        videoRef.current.play()
-      } else {
-        videoRef.current.pause()
+    const video = videoRef.current
+    if (!video) return
+
+    if (isPlaying) {
+      console.log(`Attempting to play video: ${video.src}`)
+      const playPromise = video.play()
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log('Video started playing successfully!')
+          })
+          .catch(error => {
+            console.error('Video play failed:', error)
+            console.log('This might be due to browser autoplay policy or video loading issues')
+          })
       }
+    } else {
+      console.log('Pausing video')
+      video.pause()
     }
-  }, [isHovered, isVideo])
+  }, [isPlaying])
 
   return (
     <div
@@ -74,7 +89,13 @@ function FrameComponent({
         transition: "width 0.3s ease-in-out, height 0.3s ease-in-out",
       }}
     >
-      <div className="relative w-full h-full overflow-hidden">
+      <div 
+        className="relative w-full h-full overflow-hidden cursor-pointer" 
+        onClick={(e) => {
+          console.log(`Frame clicked: ${title}`)
+          onVideoClick()
+        }}
+      >
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{
@@ -88,34 +109,29 @@ function FrameComponent({
           }}
         >
           <div
-            className="w-full h-full overflow-hidden"
+            className="w-full h-full overflow-hidden relative"
             style={{
               transform: `scale(${mediaSize})`,
               transformOrigin: "center",
               transition: "transform 0.3s ease-in-out",
             }}
           >
-            {isVideo ? (
-              <video
-                className="w-full h-full object-cover"
-                src={video}
-                loop
-                muted
-                playsInline
-                ref={videoRef}
-              />
-            ) : (
-              <img
-                className="w-full h-full object-cover"
-                src={image}
-                alt="Frame content"
-              />
-            )}
-            {title && (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h2 className="text-white text-2xl md:text-4xl font-light italic text-center px-4">
+            <video
+              className="w-full h-full object-cover"
+              src={video}
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              ref={videoRef}
+            />
+            
+            {/* Title overlay - only show when not playing */}
+            {!isPlaying && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none bg-black bg-opacity-50">
+                <h3 className={`text-white text-center px-4 ${fontClass}`}>
                   {title}
-                </h2>
+                </h3>
               </div>
             )}
           </div>
@@ -198,6 +214,23 @@ export function DynamicFrameLayout({
 }: DynamicFrameLayoutProps) {
   const [frames] = useState<Frame[]>(initialFrames)
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
+  const [playingVideos, setPlayingVideos] = useState<Set<number>>(new Set())
+
+  const handleVideoClick = (frameId: number, frameTitle: string) => {
+    console.log(`Video clicked: ${frameTitle} (ID: ${frameId})`)
+    setPlayingVideos(prev => {
+      const newSet = new Set(prev)
+      const wasPlaying = newSet.has(frameId)
+      if (wasPlaying) {
+        newSet.delete(frameId)
+        console.log(`Pausing video: ${frameTitle}`)
+      } else {
+        newSet.add(frameId)
+        console.log(`Playing video: ${frameTitle}`)
+      }
+      return newSet
+    })
+  }
 
   const getRowSizes = () => {
     if (hovered === null) return "4fr 4fr 4fr"
@@ -248,8 +281,8 @@ export function DynamicFrameLayout({
           >
             <FrameComponent
               video={frame.video}
-              image={frame.image}
               title={frame.title}
+              fontClass={frame.fontClass}
               width="100%"
               height="100%"
               className="absolute inset-0"
@@ -261,6 +294,8 @@ export function DynamicFrameLayout({
               borderSize={frame.borderSize}
               showFrame={showFrames}
               isHovered={hovered?.row === row && hovered?.col === col}
+              isPlaying={playingVideos.has(frame.id)}
+              onVideoClick={() => handleVideoClick(frame.id, frame.title)}
             />
           </motion.div>
         )
