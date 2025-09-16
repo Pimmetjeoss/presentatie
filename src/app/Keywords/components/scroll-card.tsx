@@ -1,7 +1,7 @@
 // component.tsx
 'use client';
 import { ReactLenis } from 'lenis/react';
-import React, { useRef, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import Link from 'next/link';
 
 interface ArticleCardData {
