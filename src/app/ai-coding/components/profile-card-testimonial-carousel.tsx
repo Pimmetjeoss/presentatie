@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Github,
@@ -152,12 +151,6 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
 
   const currentTestimonial = testimonials[currentIndex];
 
-  const socialIcons = [
-    { icon: Github, url: currentTestimonial.githubUrl, label: "GitHub" },
-    { icon: Twitter, url: currentTestimonial.twitterUrl, label: "Twitter" },
-    { icon: Youtube, url: currentTestimonial.youtubeUrl, label: "YouTube" },
-    { icon: Linkedin, url: currentTestimonial.linkedinUrl, label: "LinkedIn" },
-  ];
 
   return (
     <div className={cn("w-full max-w-5xl mx-auto px-4", className)}>

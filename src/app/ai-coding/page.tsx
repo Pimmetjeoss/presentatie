@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { cn } from '@/lib/utils';
 import Lenis from 'lenis'
 import {ZoomParallax} from "@/app/ai-coding/components/zoom-parallax";
 import {ContainerScroll} from "@/app/ai-coding/components/container-scroll-animation";
