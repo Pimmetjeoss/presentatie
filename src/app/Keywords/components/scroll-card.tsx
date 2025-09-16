@@ -134,7 +134,7 @@ const Component = forwardRef<HTMLElement>((props, ref) => {
             </div>
             <div className='sticky top-0 h-screen grid place-content-center'>
               <h1 className='text-4xl px-8 font-medium text-center tracking-tight leading-[120%]'>
-                Essential AI <br /> Concepts 🚀
+                
               </h1>
             </div>
           </div>
