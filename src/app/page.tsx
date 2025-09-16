@@ -65,9 +65,9 @@ export default function Home() {
             height={100}
             className="object-contain"
           />
-          <p className="mt-4 text-neutral-300 max-w-lg">
-            Welkom bij de AI workshop!     
-            Hopelijk gaan jullie aan het eind met flink wat inspiratie naar huis
+          <p className="mt-4 text-neutral-300 max-w-lg text-center">
+                   Welkom bij de AI workshop!     
+            
           </p>
         </Card>
       )}

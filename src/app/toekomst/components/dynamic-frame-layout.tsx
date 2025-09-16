@@ -218,6 +218,13 @@ export function DynamicFrameLayout({
 
   const handleVideoClick = (frameId: number, frameTitle: string) => {
     console.log(`Video clicked: ${frameTitle} (ID: ${frameId})`)
+    
+    // Check if Contiweb frame was clicked and redirect to YouTube
+    if (frameTitle === "CONTIWEB") {
+      window.open("https://www.youtube.com/watch?v=hIsy4RPRPzY", "_blank")
+      return
+    }
+    
     setPlayingVideos(prev => {
       const newSet = new Set(prev)
       const wasPlaying = newSet.has(frameId)

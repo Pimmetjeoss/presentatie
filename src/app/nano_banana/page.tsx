@@ -17,22 +17,22 @@ function ImageGrid({ images, overlayImage, title }: ImageGridProps) {
   // Define the visible and hidden image pairs for Prompts section
   const imagePairs = [
     { 
-      visible: "https://assets.aceternity.com/templates/startup-1.webp",
+      visible: "/viool.jpg",
       hidden: "https://github.com/pixegami/nano-banana-prompt-guide/blob/main/src/output/realistic_image_1.png?raw=true",
       alt: "template 1"
     },
     { 
-      visible: "https://assets.aceternity.com/templates/startup-3.webp",
+      visible: "/anime.jpg",
       hidden: "https://github.com/pixegami/nano-banana-prompt-guide/blob/main/src/output/illustration_1.png?raw=true",
       alt: "template 2"
     },
     { 
-      visible: "https://assets.aceternity.com/templates/startup-1.webp",
+      visible: "/flesje.jpg",
       hidden: "https://github.com/pixegami/nano-banana-prompt-guide/blob/main/src/output/product_photo_3.png?raw=true",
       alt: "template 3"
     },
     { 
-      visible: "https://assets.aceternity.com/templates/startup-3.webp",
+      visible: "/logo.jpg",
       hidden: "https://github.com/pixegami/nano-banana-prompt-guide/blob/main/src/output/logo_2.png?raw=true",
       alt: "template 4"
     },
@@ -168,7 +168,7 @@ export default function TimelineDemo() {
           </p>
           <ImageGrid 
             images={[
-              { src: "https://assets.aceternity.com/pro/bento-grids.png", alt: "Stefan template" },
+              { src: "/machine.jpg", alt: "Stefan template" },
               { src: "/contiweb_machine.png", alt: "Stefan template" },
                       ]}
             overlayImage="/new_machine.png"
@@ -196,19 +196,19 @@ export default function TimelineDemo() {
       ),
     },
     {
-      title: "Luuk",
+      title: "Pim",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            .
+            
           </p>
           <ImageGrid 
             images={[
               { src: "/contiweb_gebouw.jpg", alt: "René template" },
               { src: "/markt.jpg", alt: "René template" },
-              { src: "https://assets.aceternity.com/templates/startup-1.webp", alt: "René template" }
+              { src: "/pasfoto.jpg", alt: "René template" }
             ]}
-            overlayImage="https://assets.aceternity.com/templates/startup-2.webp"
+            overlayImage="/remixed_image_1758050318_0.png"
             title="René"
           />
         </div>

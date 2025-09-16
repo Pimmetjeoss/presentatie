@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import Lenis from 'lenis'
 import {ZoomParallax} from "@/app/ai-coding/components/zoom-parallax";
 import {ContainerScroll} from "@/app/ai-coding/components/container-scroll-animation";
+import { TestimonialCarousel } from "./components/profile-card-testimonial-carousel";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,31 +24,31 @@ export default function DefaultDemo() {
 
 	const images = [
 		{
-			src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
+			src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8QUklMjBhZ2VudHxlbnwwfHwwfHx8MA%3D%3D',
 			alt: 'Modern architecture building',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
+			src: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2FtZXxlbnwwfHwwfHx8MA%3D%3D',
 			alt: 'Urban cityscape at sunset',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
+			src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGFzaGJvYXJkfGVufDB8fDB8fHww',
 			alt: 'Abstract geometric pattern',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
+			src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXBwbGljYXRpb258ZW58MHx8MHx8fDA%3D',
 			alt: 'Mountain landscape',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
+			src: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aWV8ZW58MHx8MHx8fDA%3D',
 			alt: 'Minimalist design elements',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
+			src: 'https://cdn.prod.website-files.com/67053868fc01e494462e71c9/67daad2ef3660093645d72ac_model-context-protocol-mcp-ai.jpg',
 			alt: 'Ocean waves and beach',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
+			src: 'https://www.b-a-w.com/wp-content/uploads/2022/10/4-1.jpg',
 			alt: 'Forest trees and sunlight',
 		},
 	];
@@ -77,13 +78,22 @@ export default function DefaultDemo() {
 					/>
 				</ContainerScroll>
 			</div>
+			
+			{/* Testimonial Carousel Section */}
+			<div className="py-20">
+				<TestimonialCarousel />
+			</div>
+			
+			<div className="mt-[32rem] mb-20">
+				<ZoomParallax images={images} />
+			</div>
+			
 			<Link href="/toekomst" className="block cursor-pointer">
 				<div className="relative flex h-[30vh] items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
 					<h2 className="text-center text-3xl font-bold hover:text-blue-500 transition-colors">
 						Click to Continue →
 					</h2>
 				</div>
-				<ZoomParallax images={images} />
 			</Link>
 		</main>
 	);

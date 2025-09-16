@@ -55,9 +55,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               Het nieuwste voorbeeld van generative AI
             </h2>
             <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
-              Nano Banana is Google's nieuwe LLM-model dat afbeeldingen kan genereren en bewerken via simpele tekstopdrachten, 
-              waarbij het vooral uitblinkt in het behouden van gezichten en karakters tijdens bewerkingen. Het kan tot maar liefst
-              13 afbeeldingen gebruiken om in een afbeelding te zetten. 
+              Nano Banana is Google's nieuwste LLM-model dat afbeeldingen kan genereren via prompts. Het is een multimodaal model dat getraind is op een dataset van 1,4 miljard afbeeldingen en bijbehorende teksten.
+              Het kan maar liefst 13 afbeeldingen gebruiken om in een afbeelding te zetten. 
 
               Pas 3 weken geleden uitgebracht!!!
             </p>
