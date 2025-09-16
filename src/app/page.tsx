@@ -59,7 +59,7 @@ export default function Home() {
           onClick={handleCardClick}
         >
           <Image 
-            src="/remixed_image_1757394879_0.PNG"
+            src="/remixed_image_1757394879_0.png"
             alt="Contiweb AI"
             width={300}
             height={100}
