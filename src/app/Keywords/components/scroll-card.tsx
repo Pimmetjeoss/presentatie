@@ -80,7 +80,7 @@ const articleCardsData: ArticleCardData[] = [
   {
     title: 'Multimodaal',
     description:
-      'Multimodale LLM kan verschillende soorten input verwerken: tekst, afbeeldingen, audio, en soms video. Dit opent nieuwe mogelijkheden zoals het analyseren van röntgenfoto\'s of het transcriberen van audio. Het model leert verbanden tussen verschillende modaliteiten, waardoor AI-systemen veelzijdiger maar ook complexer worden.',
+      'Multimodale LLM kan verschillende soorten input verwerken: tekst, afbeeldingen, audio, en soms video. Dit opent nieuwe mogelijkheden zoals het analyseren van röntgenfoto&apos;s of het transcriberen van audio. Het model leert verbanden tussen verschillende modaliteiten, waardoor AI-systemen veelzijdiger maar ook complexer worden.',
     link: '#',
     color: '#686868', // Even Darker Gray
     rotation: '-rotate-6',
