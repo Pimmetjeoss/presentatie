@@ -51,7 +51,6 @@ function FrameComponent({
   borderThickness,
   borderSize,
   showFrame,
-  isHovered,
   isPlaying,
   onVideoClick,
 }: FrameComponentProps) {
@@ -91,7 +90,7 @@ function FrameComponent({
     >
       <div 
         className="relative w-full h-full overflow-hidden cursor-pointer" 
-        onClick={(e) => {
+        onClick={() => {
           console.log(`Frame clicked: ${title}`)
           onVideoClick()
         }}
