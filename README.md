@@ -28,6 +28,12 @@ Een moderne, interactieve presentatie-applicatie gebouwd met Next.js 15, featuri
 - **Future Technology Concepts**: Showcase van toekomstige technologieën
 - **Dynamic Layouts**: Flexibele, responsive presentatie layouts
 
+### 🤖 AI Coding Showcase
+- **Container Scroll Animation**: Geavanceerde scroll-based animaties
+- **Zoom Parallax Effects**: Dynamische zoom en parallax effecten
+- **Interactive Demonstrations**: Live voorbeelden van AI coding capabilities
+- **Modern Animation Framework**: GSAP en Framer Motion integratie
+
 ### 🍌 Nano Banana Timeline (Hoogtepunt!)
 - **Interactive Timeline**: 5 timeline entries (Test, mijzelf, Stefan, Sarah, René)
 - **Clickable Image Overlays**: Klik op de derde afbeelding voor een full-size overlay
@@ -97,6 +103,7 @@ De presentatie bevat de volgende secties:
 - **`/Keywords`** - Technology keywords en begrippen
 - **`/agenda`** - Presentatie agenda
 - **`/toekomst`** - Toekomst visie
+- **`/ai-coding`** - **🤖 AI Coding Showcase met geavanceerde animaties**
 - **`/nano_banana`** - **⭐ Interactive Timeline (Hoofdfeature!)**
 
 ## 🎯 Nano Banana Timeline Details
@@ -128,6 +135,11 @@ src/
 │   ├── Keywords/               # Technology keywords
 │   ├── agenda/                 # Presentatie agenda
 │   ├── toekomst/              # Toekomst visie
+│   ├── ai-coding/             # 🤖 AI Coding Showcase
+│   │   ├── components/
+│   │   │   ├── container-scroll-animation.tsx
+│   │   │   └── zoom-parallax.tsx
+│   │   └── page.tsx           # AI coding demo page
 │   └── nano_banana/           # ⭐ Interactive Timeline
 │       ├── components/
 │       │   └── timeline.tsx   # Main timeline component
@@ -138,7 +150,10 @@ src/
 public/
 ├── nano_banana.jpg            # Nano Banana branding
 ├── nano_banana_white.webp     # Alternative branding
-└── ...                        # Other assets
+├── contiweb_gebouw.jpg        # Contiweb assets
+├── contiweb_machine.png       # Machine imagery
+├── van_halen_concert.jpg      # Concert assets
+└── ...                        # Other presentation assets
 ```
 
 ## 🎨 Custom Components
@@ -178,8 +193,9 @@ Bekijk de live demo op: [Live Link hier invullen na deployment]
 
 **Hoogtepunten om te proberen:**
 1. `/nano_banana` - De interactieve timeline
-2. `/llm` - Interactive scrolling story  
-3. `/mcp` - MCP integratie showcase
+2. `/ai-coding` - Geavanceerde scroll animaties en zoom effecten
+3. `/llm` - Interactive scrolling story  
+4. `/mcp` - MCP integratie showcase
 
 ## 🤖 AI Integration
 
