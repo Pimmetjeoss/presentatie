@@ -188,7 +188,7 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
           )}
           onClick={() => {
             if (currentTestimonial.name === 'PRP') {
-              window.open('/PRP.pdf', '_blank');
+              window.open('/prpnew.pdf', '_blank');
             } else if (currentTestimonial.name === 'PRP Uitkomst') {
               window.open('/prp_uitkomst.pdf', '_blank');
             }
@@ -228,7 +228,7 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
         )}
         onClick={() => {
           if (currentTestimonial.name === 'PRP') {
-            window.open('/PRP.pdf', '_blank');
+            window.open('/prpnew.pdf', '_blank');
           } else if (currentTestimonial.name === 'PRP Uitkomst') {
             window.open('/prp_uitkomst.pdf', '_blank');
           }
