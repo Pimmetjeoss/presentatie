@@ -10,7 +10,7 @@ interface ImageGridProps {
   title: string;
 }
 
-function ImageGrid({ images, overlayImage, title }: ImageGridProps) {
+function ImageGrid({ images, overlayImage, title, setShowVideoModal, setCurrentVideo }: ImageGridProps & { setShowVideoModal?: (show: boolean) => void, setCurrentVideo?: (video: string) => void }) {
   const [clickedImages, setClickedImages] = useState<Set<number>>(new Set());
   const [showOverlay, setShowOverlay] = useState(false);
 
@@ -80,9 +80,24 @@ function ImageGrid({ images, overlayImage, title }: ImageGridProps) {
               width={500}
               height={500}
               className={`rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] ${
-                ((title === "Sarah" || title === "Stefan") && index === 1) || (title !== "Sarah" && title !== "Stefan" && index === 2) ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''
+                ((title === "Sarah" || title === "Stefan") && index === 1) || (title !== "Sarah" && title !== "Stefan" && index === 2) || (title === "René" && (index === 0 || index === 1)) ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''
               }`}
-              onClick={((title === "Sarah" || title === "Stefan") && index === 1) || (title !== "Sarah" && title !== "Stefan" && index === 2) ? () => setShowOverlay(true) : undefined}
+              onClick={() => {
+                // Special case for René section videos
+                if (title === "René" && setShowVideoModal && setCurrentVideo) {
+                  if (index === 0 && image.src === "/contiweb_gebouw.jpg") {
+                    setCurrentVideo("/machinevideo.mp4");
+                    setShowVideoModal(true);
+                  } else if (index === 1 && image.src === "/markt.jpg") {
+                    setCurrentVideo("/pimmovie.mp4");
+                    setShowVideoModal(true);
+                  } else if (index === 2) {
+                    setShowOverlay(true);
+                  }
+                } else if (((title === "Sarah" || title === "Stefan") && index === 1) || (title !== "Sarah" && title !== "Stefan" && index === 2)) {
+                  setShowOverlay(true);
+                }
+              }}
             />
           ))
         )}
@@ -119,6 +134,9 @@ function ImageGrid({ images, overlayImage, title }: ImageGridProps) {
 }
 
 export default function TimelineDemo() {
+  const [showVideoModal, setShowVideoModal] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState("");
+  
   const handleReneClick = () => {
     window.location.href = '/mcp';
   };
@@ -210,6 +228,8 @@ export default function TimelineDemo() {
             ]}
             overlayImage="/remixed_image_1758050318_0.png"
             title="René"
+            setShowVideoModal={setShowVideoModal}
+            setCurrentVideo={setCurrentVideo}
           />
         </div>
       ),
@@ -221,6 +241,32 @@ export default function TimelineDemo() {
       <div className="absolute top-0 left-0 w-full">
         <Timeline data={data} />
       </div>
+      
+      {/* Video Modal */}
+      {showVideoModal && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+          onClick={() => setShowVideoModal(false)}
+        >
+          <div className="relative max-w-4xl w-full mx-4" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowVideoModal(false)}
+              className="absolute -top-10 right-0 text-white text-3xl font-bold hover:text-gray-300 transition-colors z-10"
+            >
+              ✕
+            </button>
+            <video
+              controls
+              autoPlay
+              className="w-full rounded-lg shadow-2xl"
+              onEnded={() => setShowVideoModal(false)}
+            >
+              <source src={currentVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
