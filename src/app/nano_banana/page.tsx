@@ -13,6 +13,7 @@ interface ImageGridProps {
 function ImageGrid({ images, overlayImage, title, setShowVideoModal, setCurrentVideo }: ImageGridProps & { setShowVideoModal?: (show: boolean) => void, setCurrentVideo?: (video: string) => void }) {
   const [clickedImages, setClickedImages] = useState<Set<number>>(new Set());
   const [showOverlay, setShowOverlay] = useState(false);
+  const [currentOverlayImage, setCurrentOverlayImage] = useState(overlayImage);
 
   // Define the visible and hidden image pairs for Prompts section
   const imagePairs = [
@@ -79,19 +80,20 @@ function ImageGrid({ images, overlayImage, title, setShowVideoModal, setCurrentV
               alt={image.alt}
               width={500}
               height={500}
-              className={`rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] ${
+              className={`rounded-lg ${title === "Sarah" && index === 0 ? 'object-contain bg-gray-100' : 'object-cover'} ${title === "Sarah" && index === 0 ? 'h-32 md:h-64 lg:h-80' : 'h-20 md:h-44 lg:h-60'} w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] ${
                 ((title === "Sarah" || title === "Stefan") && index === 1) || (title !== "Sarah" && title !== "Stefan" && index === 2) || (title === "René" && (index === 0 || index === 1)) ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''
               }`}
               onClick={() => {
                 // Special case for René section videos
                 if (title === "René" && setShowVideoModal && setCurrentVideo) {
-                  if (index === 0 && image.src === "/contiweb_gebouw.jpg") {
-                    setCurrentVideo("/machinevideo.mp4");
+                  if (index === 0 && image.src === "/alfons.jpg") {
+                    setCurrentOverlayImage("/Alfons_lederhosen.png");
+                    setShowOverlay(true);
+                  } else if (index === 1 && image.src === "/truckstaand.jpg") {
+                    setCurrentVideo("/truck_alju.mp4");
                     setShowVideoModal(true);
-                  } else if (index === 1 && image.src === "/markt.jpg") {
-                    setCurrentVideo("/pimmovie.mp4");
-                    setShowVideoModal(true);
-                  } else if (index === 2) {
+                  } else if (index === 2 && image.src === "/alfons.jpg") {
+                    setCurrentOverlayImage("/Alfons_fiets.png");
                     setShowOverlay(true);
                   }
                 } else if (((title === "Sarah" || title === "Stefan") && index === 1) || (title !== "Sarah" && title !== "Stefan" && index === 2)) {
@@ -105,19 +107,19 @@ function ImageGrid({ images, overlayImage, title, setShowVideoModal, setCurrentV
       
       {/* Overlay for other sections */}
       {showOverlay && title !== "Test" && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
           onClick={() => setShowOverlay(false)}
         >
           <div className="relative max-w-5xl max-h-[90vh] p-8">
             <Image
-              src={overlayImage}
+              src={currentOverlayImage}
               alt={`${title} overlay`}
               width={1200}
               height={900}
               className="rounded-lg object-contain max-w-full max-h-[85vh] shadow-2xl"
             />
-            <button 
+            <button
               className="absolute top-2 right-2 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-3 text-black font-bold transition-all text-xl"
               onClick={(e) => {
                 e.stopPropagation();
@@ -184,49 +186,49 @@ export default function TimelineDemo() {
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
             
           </p>
-          <ImageGrid 
+          <ImageGrid
             images={[
               { src: "/machine.jpg", alt: "Stefan template" },
-              { src: "/contiweb_machine.png", alt: "Stefan template" },
+              { src: "/truckalju.jpg", alt: "Stefan template" },
                       ]}
-            overlayImage="/new_machine.png"
+            overlayImage="/salar de uyuni.png"
             title="Stefan"
           />
         </div>
       ),
     },
     {
-      title: "Stefan",
+      title: "Barry",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            
+
           </p>
-          <ImageGrid 
+          <ImageGrid
             images={[
-              { src: "/VanHalen05.jpg", alt: "Sarah template" },
-              { src: "/van_halen_concert.jpg", alt: "Sarah template" },
+              { src: "/barry.jpeg", alt: "Sarah template" },
+              { src: "/woodstock.jpg", alt: "Sarah template" },
             ]}
-            overlayImage="/remixed_image_1757399811_0.png"
+            overlayImage="/barry_woodstock.jpeg"
             title="Sarah"
           />
         </div>
       ),
     },
     {
-      title: "Pim",
+      title: "Alfons",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            
+
           </p>
-          <ImageGrid 
+          <ImageGrid
             images={[
-              { src: "/contiweb_gebouw.jpg", alt: "René template" },
-              { src: "/markt.jpg", alt: "René template" },
-              { src: "/pasfoto.jpg", alt: "René template" }
+              { src: "/alfons.jpg", alt: "René template" },
+              { src: "/truckstaand.jpg", alt: "René template" },
+              { src: "/alfons.jpg", alt: "René template" }
             ]}
-            overlayImage="/remixed_image_1758050318_0.png"
+            overlayImage="/Alfons_fiets.png"
             title="René"
             setShowVideoModal={setShowVideoModal}
             setCurrentVideo={setCurrentVideo}

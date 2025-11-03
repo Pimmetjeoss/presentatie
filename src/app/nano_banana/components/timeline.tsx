@@ -55,9 +55,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             </h2>
             <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
               Nano Banana is Google&apos;s nieuwste LLM-model dat afbeeldingen kan genereren via prompts. Het is een multimodaal model dat getraind is op een dataset van 1,4 miljard afbeeldingen en bijbehorende teksten.
-              Het kan maar liefst 13 afbeeldingen gebruiken om in een afbeelding te zetten. 
-
-              Pas 3 weken geleden uitgebracht!!!
+              Het kan maar liefst 13 afbeeldingen gebruiken om in een afbeelding te zetten.
             </p>
           </div>
         </div>
