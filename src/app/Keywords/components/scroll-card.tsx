@@ -142,8 +142,8 @@ const Component = forwardRef<HTMLElement>((props, ref) => {
 
         <footer className='group bg-slate-950 '>
           <Link href='/nano_banana' className='block'>
-            <h1 className='text-[16vw] translate-y-20 leading-[100%] uppercase font-semibold text-center bg-gradient-to-r from-gray-400 to-gray-800 bg-clip-text text-transparent transition-all ease-linear hover:from-gray-300 hover:to-gray-700 cursor-pointer'>
-              Contiweb
+            <h1 className='text-[16vw] -translate-y-10 leading-[100%] uppercase font-semibold text-center bg-gradient-to-r from-gray-400 to-gray-800 bg-clip-text text-transparent transition-all ease-linear hover:from-gray-300 hover:to-gray-700 cursor-pointer'>
+              Alju
             </h1>
           </Link>
           <div className='bg-black h-40 relative z-10 grid place-content-center text-2xl rounded-tr-full rounded-tl-full text-white'></div>

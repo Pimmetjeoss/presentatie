@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { 
-  Geist, 
-  Geist_Mono, 
-  Oswald, 
-  Merriweather, 
-  Archivo_Black, 
-  Bebas_Neue, 
-  Dancing_Script, 
+import Script from "next/script";
+import {
+  Geist,
+  Geist_Mono,
+  Oswald,
+  Merriweather,
+  Archivo_Black,
+  Bebas_Neue,
+  Dancing_Script,
   Caprasimo,
   JetBrains_Mono,
   Creepster
@@ -84,8 +85,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isDevelopment = process.env.NODE_ENV === "development";
+
   return (
     <html lang="en">
+      <head>
+        {isDevelopment && (
+          <Script
+            src="//unpkg.com/react-grab/dist/index.global.js"
+            crossOrigin="anonymous"
+            strategy="beforeInteractive"
+            data-enabled="true"
+          />
+        )}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${merriweather.variable} ${archivoBlack.variable} ${bebasNeue.variable} ${dancingScript.variable} ${caprasimo.variable} ${jetbrainsMono.variable} ${creepster.variable} antialiased`}
       >

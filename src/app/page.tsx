@@ -58,9 +58,9 @@ export default function Home() {
           className="absolute top-112 left-8 z-10 bg-black/80 border-black p-6 cursor-pointer transition-all hover:bg-black/90"
           onClick={handleCardClick}
         >
-          <Image 
-            src="/remixed_image_1757394879_0.png"
-            alt="Contiweb AI"
+          <Image
+            src="/Alju-Logistics-logo.svg"
+            alt="Alju Logistics"
             width={300}
             height={100}
             className="object-contain"
