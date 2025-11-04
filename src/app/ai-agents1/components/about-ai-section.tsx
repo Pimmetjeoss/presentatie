@@ -132,7 +132,7 @@ export default function AboutUsSection() {
     <section
       id="about-section"
       ref={sectionRef}
-      className="w-full py-24 px-4 bg-gradient-to-b from-[#F2F2EB] to-[#F8F8F2] text-[#202e44] overflow-hidden relative"
+      className="w-full py-24 px-4 bg-gradient-to-b from-[rgb(240,253,244)] to-[rgb(220,252,231)] text-[#202e44] overflow-hidden relative"
     >
       {/* Decorative background elements */}
       <motion.div
@@ -185,9 +185,9 @@ export default function AboutUsSection() {
             <Zap className="w-4 h-4" />
             DISCOVER AGENTIC AI
           </motion.span>
-          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center">AI & agents</h2>
+          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center text-[rgb(5,46,22)]">AI & agents</h2>
           <motion.div
-            className="w-24 h-1 bg-[#88734C]"
+            className="w-24 h-1 bg-[rgb(5,46,22)]"
             initial={{ width: 0 }}
             animate={{ width: 96 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -224,8 +224,8 @@ export default function AboutUsSection() {
               whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
             >
               <img
-                src="https://images.unsplash.com/photo-1747582411588-f9b4acabe995?q=80&w=3027&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Modern House"
+                src="/photo-1747582411588-f9b4acabe995.jpg"
+                alt="AI Agents"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -282,9 +282,8 @@ export default function AboutUsSection() {
         </div>
 
         <motion.div className="flex flex-col items-center mb-6 mt-16" variants={itemVariants}>
-          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center">Agentic Workflow</h2>
           <motion.div
-            className="w-24 h-1 bg-[#88734C]"
+            className="w-24 h-1 bg-[rgb(5,46,22)]"
             initial={{ width: 0 }}
             animate={{ width: 96 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -324,7 +323,7 @@ export default function AboutUsSection() {
                 whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1747582411588-f9b4acabe995?q=80&w=3027&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="/photo-1747582411588-f9b4acabe995 (1).jpg"
                   alt="Modern House"
                   className="w-full h-full object-cover"
                 />
@@ -339,7 +338,7 @@ export default function AboutUsSection() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Our Portfolio <ArrowRight className="w-4 h-4" />
+                    Check Flow <ArrowRight className="w-4 h-4" />
                   </motion.button>
                 </motion.div>
               </motion.div>
@@ -435,21 +434,21 @@ export default function AboutUsSection() {
 
         {/* CTA Section */}
         <motion.div
-          className="mt-20 bg-[#202e44] text-white p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6"
+          className="mt-20 bg-[rgb(240,253,244)] p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6"
           initial={{ opacity: 0, y: 30 }}
           animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <div className="flex-1">
-            <h3 className="text-2xl font-medium mb-2">Ready to transform your space?</h3>
-            <p className="text-white/80">Let's create something beautiful together.</p>
+            <h3 className="text-2xl font-medium mb-2 text-[#202e44]">Zie de volledige flow in actie</h3>
+            <p className="text-[#202e44]/80">Bekijk hoe het systeem van begin tot eind werkt in onze demo video.</p>
           </div>
           <motion.button
-            className="bg-[#88734C] hover:bg-[#88734C]/90 text-white px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors"
+            className="bg-[rgb(187,247,208)] hover:bg-[rgb(187,247,208)]/90 text-[#202e44] px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Get Started <ArrowRight className="w-4 h-4" />
+            Bekijk Flow <ArrowRight className="w-4 h-4" />
           </motion.button>
         </motion.div>
       </motion.div>
@@ -565,7 +564,7 @@ function StatCounter({ icon, value, label, suffix, delay }: StatCounterProps) {
         <span>{suffix}</span>
       </motion.div>
       <p className="text-[#202e44]/70 text-sm mt-1">{label}</p>
-      <motion.div className="w-10 h-0.5 bg-[#88734C] mt-3 group-hover:w-16 transition-all duration-300" />
+      <motion.div className="w-10 h-0.5 bg-[rgb(20,83,45)] mt-3 group-hover:w-16 transition-all duration-300" />
     </motion.div>
   )
 }
