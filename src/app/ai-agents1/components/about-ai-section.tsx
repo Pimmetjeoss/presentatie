@@ -122,8 +122,8 @@ export default function AboutUsSection() {
   ]
 
   const stats = [
-    { icon: <Award />, value: 150, label: "Projects Completed", suffix: "+" },
-    { icon: <Users />, value: 1200, label: "Happy Clients", suffix: "+" },
+    { icon: <Award />, value: 33, label: "Kostenbesparing", suffix: "%" },
+    { icon: <Users />, value: 45, label: "Meer werkplezier", suffix: "%" },
     { icon: <Calendar />, value: "24-7", label: "uur per dag", suffix: "" },
     { icon: <TrendingUp />, value: 99, label: "Nauwkeurigheid", suffix: "%" },
   ]
@@ -194,9 +194,24 @@ export default function AboutUsSection() {
           ></motion.div>
         </motion.div>
 
-        <motion.p className="text-center max-w-2xl mx-auto mb-16 text-[#202e44]/80" variants={itemVariants}>
-          99% van de mensen gebruikt AI nog reactief: je typt een vraag, krijgt een antwoord, en klaar. Maar wat als AI proactief wordt? Wat als het zelf problemen oppikt, taken plant en uitvoert zonder dat jij constant hoeft in te grijpen? Dát is de kracht van agentic AI: slimme systemen die niet alleen reageren, maar ook zelf actie ondernemen.
-        </motion.p>
+        <div className="relative">
+          <motion.p className="text-center max-w-2xl mx-auto mb-16 text-[#202e44]/80" variants={itemVariants}>
+            99% van de mensen gebruikt AI nog reactief: je typt een vraag, krijgt een antwoord, en klaar. Maar wat als AI proactief wordt? Wat als het zelf problemen oppikt, taken plant en uitvoert zonder dat jij constant hoeft in te grijpen? Dát is de kracht van agentic AI: slimme systemen die niet alleen reageren, maar ook zelf actie ondernemen.
+          </motion.p>
+          <motion.div
+            className="absolute top-1/2 right-0 md:right-20 w-4 h-4 rounded-full bg-[#A9BBC8]/30"
+            animate={{
+              y: [0, -15, 0],
+              opacity: [0.5, 1, 0.5],
+            }}
+            transition={{
+              duration: 3.5,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
+          />
+        </div>
 
         {/* Center Image */}
         <div className="flex justify-center items-center mb-16 mt-8">
@@ -213,20 +228,6 @@ export default function AboutUsSection() {
                 alt="Modern House"
                 className="w-full h-full object-cover"
               />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-[#202e44]/50 to-transparent flex items-end justify-center p-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
-              >
-                <motion.button
-                  className="bg-white text-[#202e44] px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Our Portfolio <ArrowRight className="w-4 h-4" />
-                </motion.button>
-              </motion.div>
             </motion.div>
             <motion.div
               className="absolute inset-0 border-4 border-[#A9BBC8] rounded-md -m-3 z-[-1]"
@@ -512,7 +513,7 @@ function ServiceItem({ icon, secondaryIcon, title, description, delay, direction
 
 interface StatCounterProps {
   icon: React.ReactNode
-  value: number
+  value: number | string
   label: string
   suffix: string
   delay: number
@@ -530,7 +531,7 @@ function StatCounter({ icon, value, label, suffix, delay }: StatCounterProps) {
 
   useEffect(() => {
     if (isInView && !hasAnimated) {
-      springValue.set(value)
+      springValue.set(typeof value === 'number' ? value : 0)
       setHasAnimated(true)
     } else if (!isInView && hasAnimated) {
       springValue.set(0)
@@ -560,7 +561,7 @@ function StatCounter({ icon, value, label, suffix, delay }: StatCounterProps) {
         {icon}
       </motion.div>
       <motion.div ref={countRef} className="text-3xl font-bold text-[#202e44] flex items-center">
-        <motion.span>{displayValue}</motion.span>
+        <motion.span>{typeof value === 'string' ? value : displayValue}</motion.span>
         <span>{suffix}</span>
       </motion.div>
       <p className="text-[#202e44]/70 text-sm mt-1">{label}</p>
