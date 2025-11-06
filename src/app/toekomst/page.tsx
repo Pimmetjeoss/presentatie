@@ -62,7 +62,7 @@ const demoFrames = [
   {
     id: 5,
     video: "https://static.cdn-luma.com/files/58ab7363888153e3/Logo%20Exported.mp4",
-    title: "CONTIWEB",
+    title: "ALJU",
     fontClass: "font-[var(--font-bebas-neue)] text-5xl uppercase tracking-wide",
     defaultPos: { x: 4, y: 4, w: 4, h: 4 },
     corner: "",

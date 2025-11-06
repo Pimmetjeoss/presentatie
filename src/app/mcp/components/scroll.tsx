@@ -123,7 +123,7 @@ export default function ScrollAdventure() {
                 }}
                 onClick={() => {
                   if (idx === numOfPages && page.leftBgImage) {
-                    router.push('/ai-coding');
+                    router.push('/ai-agents1');
                   }
                 }}
               >

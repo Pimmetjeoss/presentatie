@@ -21,6 +21,7 @@ import {
   TrendingUp,
 } from "lucide-react"
 import { motion, useScroll, useTransform, useInView, useSpring } from "framer-motion"
+import Link from "next/link"
 
 export default function AboutUsSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -440,16 +441,16 @@ export default function AboutUsSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <div className="flex-1">
-            <h3 className="text-2xl font-medium mb-2 text-[#202e44]">Zie de volledige flow in actie</h3>
-            <p className="text-[#202e44]/80">Bekijk hoe het systeem van begin tot eind werkt in onze demo video.</p>
           </div>
-          <motion.button
-            className="bg-[rgb(187,247,208)] hover:bg-[rgb(187,247,208)]/90 text-[#202e44] px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Bekijk Flow <ArrowRight className="w-4 h-4" />
-          </motion.button>
+          <Link href="/toekomst">
+            <motion.button
+              className="bg-[rgb(187,247,208)] hover:bg-[rgb(187,247,208)]/90 text-[#202e44] px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              De toekomst <ArrowRight className="w-4 h-4" />
+            </motion.button>
+          </Link>
         </motion.div>
       </motion.div>
     </section>
